@@ -46,7 +46,7 @@ The reference is used to align the completed local assemblies.
 
 ### 4. Run the workflow
 ```bash
-sbatch Local_Assembly.sh samples.tsv /path/to/reference/genome
+./Submit_Local_Assembly.sh samples.tsv /path/to/reference/genome
 ```
 
 The workflow processes the samples and genomic regions specified in `samples.tsv` using the containerized software environment `LR_LocalAsm.sif`.
@@ -62,8 +62,6 @@ The workflow processes the samples and genomic regions specified in `samples.tsv
 For each sample and genomic region, the workflow generates:
 - assembled contigs (`.gfa and .fa`)
 - alignment of assembled contigs to the reference genome (`.bam`)
-
-Temporary region-specific BAM and FASTQ files are generated during processing and removed after assembly.
 
 ## Container
 The software environment is defined using a custom Singularity/Apptainer definition file included in this repository.
