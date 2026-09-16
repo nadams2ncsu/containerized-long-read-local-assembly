@@ -3,7 +3,7 @@ Explains the usage and main inputs/outputs produced from the long-read local ass
 
 ## Usage
 Command line usage:
-`./Submit_Local_Assembly.sh samples.tsv /path/to/reference/genome/fasta/file --ont --hg-size 2m`
+`./Submit_Local_Assembly.sh samples.tsv /path/to/reference/genome/fasta/file`
 
 ## Inputs
 All inputs must be in the same directory unless paths are updated in `Submit_Local_Assembly.sh` and `Submit_Local_Assembly.sh`
@@ -16,8 +16,6 @@ Update path container is mounted to in `Local_Assembly.sh`
 | Local_Assembly.sh | Contains workflow parameters for each process; Each sample will have **6 subsets that vary by their flanking regions around the gene/region of interest**. Different flanking regions are used to try an get contiguous assemblies. |                    
 | samples.tsv | Contains metadata information for samples that will be processed |
 | Reference genome file | The human reference genome FASTA/FA file of the genome you want to align the contigs to |
-| --ont | **Optional Argument** to specify we have Nanopore long-read whole-genome sequencing data |
-| --hg-size | Approximate subset size input for local assembly (~ 2 Mb)| 
 
 ## Outputs
 All outputs will be deposited in subdirectories within the current working directory
