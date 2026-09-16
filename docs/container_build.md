@@ -28,7 +28,7 @@ The resulting container includes:
 | minimap2 | 2.30 |
 | gfatools | 0.5 |
 
-The definition file used for this build was stored on macOS at `containerized-long-read-local-assembly/container/LR_Local_Asm.def`
+The definition file used for this build is at `containerized-long-read-local-assembly/docs/LR_Local_Asm.def`
 
 ---
 
