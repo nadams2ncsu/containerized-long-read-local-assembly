@@ -11,4 +11,11 @@ Contains inputs and outputs from local assembly of Nanopore long-read whole-geno
 ## Usage
 Shows basic and advance command line usage of using the container and submitting it to an HPC system.
 
+```bash
+chmod +x submit_local_assembly.sh
+```
+```bash
+./submit_local_assembly.sh samples.tsv reference.genome.fasta
+```
+
 *Commands were written for the SLURM job scheduler. Modify resources based on system scheduler and resources*
