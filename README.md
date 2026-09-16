@@ -24,22 +24,15 @@ git clone https://github.com/nadams2ncsu/containerized-long-read-local-assembly
 cd containerized-local-genome-assembly
 ```
 
-### 2. Prepare the input file
+### 2. Prepare the sample input file
 
 Provide a tab-delimited file containing:
 
 - sample name
 - direct path to the long-read aligned BAM
+- gene name
+- strand 
 - genomic coordinates to assemble
-
-For example:
-
-```text
-sample	bam	region
-sample1	/path/to/sample1/aligned/bam/file	chr#:start coordinate-end coordinate
-sample2	/path/to/sample2/aligned/bam/file	chr#:start coordinate-end coordinate
-sample3	/path/to/sample3/aligned/bam/file	chr#:start coordinate-end coordinate
-```
 
 BAM files should be coordinate-sorted and indexed.
 
@@ -54,21 +47,18 @@ Provide the direct path to the reference genome FASTA:
 The reference is used to align the completed local assemblies.
 
 ### 4. Run the workflow
-
 ```bash
-sbatch local_genome_assembly.sh samples.tsv /path/to/reference/genome
+sbatch Local_Assembly.sh samples.tsv /path/to/reference/genome
 ```
 
-The workflow processes the samples and genomic regions specified in `samples.tsv` using the containerized software environment.
+The workflow processes the samples and genomic regions specified in `samples.tsv` using the containerized software environment `LR_LocalAsm.sif`.
 
 ## Inputs
-
 | Input | Description |
 |---|---|
 | Sample list | Tab-delimited file containing sample names, BAM paths, and genomic coordinates |
-| BAM | Coordinate-sorted and indexed long-read alignment |
-| Region | Genomic interval to locally assemble (`chr#:start coordinate-end coordinate`) |
-| Reference | Reference genome FASTA used for alignment of assembled contigs |
+| Reference | Reference genome FASTA to align the contigs to |
+| Optional Arguments | `--ont` to specify Nanopore data and `--hg-size` the total subset region size for **hifiasm assembly** |
 
 ## Outputs
 
@@ -79,7 +69,6 @@ For each sample and genomic region, the workflow generates:
 Temporary region-specific BAM and FASTQ files are generated during processing and removed after assembly.
 
 ## Container
-
 The software environment is defined using a custom Singularity/Apptainer definition file included in this repository.
 
 
