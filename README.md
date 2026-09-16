@@ -38,11 +38,7 @@ BAM files should be coordinate-sorted and indexed.
 
 ### 3. Provide the reference genome
 
-Provide the direct path to the reference genome FASTA:
-
-```text
-/path/to/reference/genome
-```
+Provide the direct path to the reference genome FASTA `/path/to/reference/genome`
 
 The reference is used to align the completed local assemblies.
 
@@ -58,7 +54,6 @@ The workflow processes the samples and genomic regions specified in `samples.tsv
 |---|---|
 | Sample list | Tab-delimited file containing sample names, BAM paths, and genomic coordinates |
 | Reference | Reference genome FASTA to align the contigs to |
-| Optional Arguments | `--ont` to specify Nanopore data and `--hg-size` the total subset region size for **hifiasm assembly** |
 
 ## Outputs
 
