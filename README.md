@@ -29,7 +29,7 @@ cd containerized-local-genome-assembly
 Provide a tab-delimited file containing:
 
 - sample name
-- consortium label (put `NA` if it doesn't apply)
+- consortium label (`LRSC, HPRC, HGSVC, or NA`)
 - direct path to the long-read aligned BAM file
 - gene name
 - genomic coordinates to assemble (`chr#:START-END`)
