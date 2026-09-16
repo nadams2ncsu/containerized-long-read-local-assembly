@@ -1,7 +1,15 @@
 # Data
-Explains the main inputs and outputs produced from the long-read local assembly container.
+Explains the usage and main inputs/outputs produced from the long-read local assembly container.
+
+## Usage
+Command line usage:
+`./Submit_Local_Assembly.sh samples.tsv /path/to/reference/genome/fasta/file --ont --hg-size 2m`
 
 ## Inputs
+All inputs must be in the same directory unless paths are updated in `Submit_Local_Assembly.sh` and `Submit_Local_Assembly.sh`
+
+Update path container is mounted to in `Local_Assembly.sh`
+
 | File | Description |
 |---|---|
 | Submit_Local_Assembly.sh | A wrapper used to detect how many samples are in samples.tsv, submits workflow to HPC, and runs only 5 samples at a time |                  
@@ -9,9 +17,11 @@ Explains the main inputs and outputs produced from the long-read local assembly 
 | samples.tsv | Contains metadata information for samples that will be processed |
 | Reference genome file | The human reference genome FASTA/FA file of the genome you want to align the contigs to |
 | --ont | **Optional Argument** to specify we have Nanopore long-read whole-genome sequencing data |
-| --hg-size | Approximate subset size input for local assembly | 
+| --hg-size | Approximate subset size input for local assembly (~ 2 Mb)| 
 
 ## Outputs
+All outputs will be deposited in subdirectories within the current working directory
+
 | File | Description |
 |---|---|
 | BAM files | Will include long-read alignment subsets based by gene/region coordinates and final contigs aligned to the reference genome |
