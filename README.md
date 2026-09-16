@@ -18,7 +18,7 @@ The Singularity/Apptainer container includes:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/nadams2ncsu/containerized-long-read-local-assembly/
+git clone https://github.com/nadams2ncsu/containerized-long-read-local-assembly
 ```
 ```bash
 cd containerized-local-genome-assembly
