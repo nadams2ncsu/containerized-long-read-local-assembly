@@ -36,9 +36,9 @@ For example:
 
 ```text
 sample	bam	region
-sample1	/path/to/sample 1/aligned/bam/file	chr#:start coordinate-end coordinate
-sample2	/path/to/sample 2/aligned/bam/file	chr#:start coordinate-end coordinate
-sample3	/path/to/sample 3/aligned/bam/file	chr#:start coordinate-end coordinate
+sample1	/path/to/sample1/aligned/bam/file	chr#:start coordinate-end coordinate
+sample2	/path/to/sample2/aligned/bam/file	chr#:start coordinate-end coordinate
+sample3	/path/to/sample3/aligned/bam/file	chr#:start coordinate-end coordinate
 ```
 
 BAM files should be coordinate-sorted and indexed.
