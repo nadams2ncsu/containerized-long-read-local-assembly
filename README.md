@@ -11,7 +11,7 @@ The Singularity/Apptainer container includes:
 - samtools v1.22.1
 - hifiasm v0.25
 - gfatools v0.5
-- minimap2 v2.22
+- minimap2 v2.30
 
 ## Quick Start
 
