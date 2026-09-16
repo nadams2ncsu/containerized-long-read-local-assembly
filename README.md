@@ -29,10 +29,12 @@ cd containerized-local-genome-assembly
 Provide a tab-delimited file containing:
 
 - sample name
+- consortium label
 - direct path to the long-read aligned BAM
 - gene name
-- strand 
 - genomic coordinates to assemble
+- data type
+- flanking regions lengths to add genomic coordinates
 
 BAM files should be coordinate-sorted and indexed.
 
