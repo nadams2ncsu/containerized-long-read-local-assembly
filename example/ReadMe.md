@@ -1,4 +1,4 @@
-# Example usage of LR_Local_Asm.sif 
+# Example usage
 Directory shows example usage of long-read local assembly container using human whole-genome sequencing data and the Fc gamma receptor 2/3 locus.
 
 *The container can be used for other genes/regions and systems as long as the `samples.tsv` and `reference genome fasta` files are supplied.*
