@@ -6,7 +6,7 @@ Directory shows example usage of long-read local assembly container using human 
 ## Data
 Contains inputs and outputs from local assembly of Nanopore and PacBio long-read whole-genome sequencing data from local assembly.
 
-*The original whole-genome sequencing data can be found on the 1KGP Long-Read Sequencing Consortium [AWS bucket](https://s3.amazonaws.com/1000g-ont/index.html)*
+The original whole-genome sequencing data can be found on the 1KGP Long-Read Sequencing Consortium [AWS bucket](https://s3.amazonaws.com/1000g-ont/index.html)
 
 ## Usage
 Shows basic and advance command line usage of using the container and submitting it to an HPC system.
