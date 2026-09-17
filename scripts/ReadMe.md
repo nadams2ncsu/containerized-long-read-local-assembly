@@ -27,7 +27,7 @@ Includes the following steps:
 
 Including additional sequences outside the gene/region of interest may improve contiguity of assemblies.
 
-Flanking regions may contain more variants to properly phase reads during the assembly processes. 
+Flanking regions may contain more variants to properly phase reads during the assembly. 
 
 This is particularly important for low heterozygous individuals/regions to avoid collapsed and discontiguous contigs.
 
