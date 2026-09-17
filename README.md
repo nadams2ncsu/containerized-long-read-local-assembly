@@ -6,7 +6,7 @@ The workflow extracts reads overlapping user-defined genomic regions with **samt
 
 ## Container
 
-The Singularity/Apptainer container includes the following software and workflow:
+The Singularity/Apptainer `lr_local_assembly.sif` container includes the following software and workflow:
 
 - samtools v1.22.1
 - hifiasm v0.25
