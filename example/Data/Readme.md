@@ -14,9 +14,9 @@ All inputs must be in the same directory unless paths are updated in `submit_loc
 | samples.tsv | Contains metadata information for samples that will be processed |
 | Reference genome file | The human reference genome FASTA/FA file of the genome you want to align the contigs to |
 
-**The lr_local_assembly.sif must be in the current working directory**
+**samples.tsv is a 7-column tab-delimited input file where all columns are required. However, if consortium does not apply to your dataset, a different label can be placed there (batch, timepoint, etc)**
 
-**samples.tsv is a 7-column tab-delimited input
+**The lr_local_assembly.sif must be in the current working directory**
 
 ## Outputs
 All outputs will be deposited in subdirectories within the current working directory.
