@@ -4,7 +4,7 @@ Directory shows example usage of long-read local assembly container using human 
 *The container can be used for other genes/regions and systems as long as the `samples.tsv` and `reference genome fasta` files are supplied.*
 
 ## Data
-Contains inputs and outputs from local assembly of Nanopore long-read whole-genome sequencing data from local assembly.
+Contains inputs and outputs from local assembly of Nanopore and PacBio long-read whole-genome sequencing data from local assembly.
 
 *The original whole-genome sequencing data can be found on the 1KGP Long-Read Sequencing Consortium [AWS bucket](https://s3.amazonaws.com/1000g-ont/index.html)*
 
