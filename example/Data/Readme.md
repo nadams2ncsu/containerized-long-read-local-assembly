@@ -25,3 +25,5 @@ All outputs will be deposited in subdirectories within the current working direc
 |---|---|
 | BAM files | Final assembled contigs aligned to the reference genome |
 | .fa | Asembled contig sequences output by gfatools |
+
+*Additional outputs including gene/region-specific bam/fastq files and assembly output metrics will be in the hifiasm and intermediate directories. These files may be useful for troubleshooting and different visualizations but are ommitted from the repo. The workflow will output intermediate files on your HPC system.*
