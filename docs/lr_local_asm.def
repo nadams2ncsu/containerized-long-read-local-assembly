@@ -1,0 +1,174 @@
+Bootstrap: docker
+From: ubuntu:24.04
+
+
+%labels
+
+    Author Nicole Adams
+    Description "Containerized localized long-read genome assembly workflow and reference alignment."
+    Samtools_Version "1.22.1"
+    Hifiasm_Version "0.25.0"
+    Minimap2_Version "2.30"
+    Gfatools_Version "0.5"
+
+
+############################################################
+# Workflow files
+
+%files
+    /Users/nicoleadams/Desktop/sing_test/local_assembly.sh /usr/local/bin/local_assembly.sh
+
+
+%post
+
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+
+
+    ############################################################
+    # Build dependencies
+
+    apt-get install -y \
+        wget \
+        git \
+        build-essential \
+        zlib1g-dev \
+        libbz2-dev \
+        liblzma-dev \
+        libcurl4-openssl-dev \
+        libssl-dev \
+        ca-certificates
+
+
+    ############################################################
+    #Installing  samtools 1.22.1
+
+    cd /opt
+    wget https://github.com/samtools/samtools/releases/download/1.22.1/samtools-1.22.1.tar.bz2
+    tar -xjf samtools-1.22.1.tar.bz2
+    cd /opt/samtools-1.22.1
+
+    ./configure \
+        --prefix=/usr/local \
+        --without-curses
+
+    make -j4
+    make install
+
+
+    ############################################################
+    #Installing  hifiasm 0.25.0
+
+    cd /opt
+    git clone \
+        --branch 0.25.0 \
+        --depth 1 \
+        https://github.com/chhylp123/hifiasm.git
+
+    cd /opt/hifiasm
+    make -j4
+    ln -s /opt/hifiasm/hifiasm /usr/local/bin/hifiasm
+
+
+    ############################################################
+    #Installing  minimap2 2.30
+
+    cd /opt
+
+    git clone \
+        --branch v2.30 \
+        --depth 1 \
+        https://github.com/lh3/minimap2.git
+
+    cd /opt/minimap2
+    make -j4
+    ln -s /opt/minimap2/minimap2 /usr/local/bin/minimap2
+
+
+    ############################################################
+    # Installing gfatools 0.5
+
+    cd /opt
+
+    git clone \
+        --branch v0.5 \
+        --depth 1 \
+        https://github.com/lh3/gfatools.git
+
+    cd /opt/gfatools
+    make -j4
+    ln -s /opt/gfatools/gfatools /usr/local/bin/gfatools
+
+    ############################################################
+    # Local assembly workflow
+
+    chmod +x /usr/local/bin/local_assembly.sh
+
+
+    ############################################################
+    # Clean up
+
+    rm -f /opt/samtools-1.22.1.tar.bz2
+    apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+
+%environment
+    export PATH=/usr/local/bin:$PATH
+
+
+%test
+    echo "Testing samtools..."
+    samtools --version
+    echo "Testing hifiasm..."
+    hifiasm --version
+    echo "Testing minimap2..."
+    minimap2 --version
+    echo "Testing gfatools..."
+    gfatools 2>&1 | head -n 5
+    echo "Testing local assembly workflow..."
+    test -x /usr/local/bin/local_assembly.sh
+
+
+%help
+
+    Containerized localized long-read genome assembly workflow.
+
+    Included software:
+
+      - samtools 1.22.1
+      - hifiasm 0.25.0
+      - minimap2 2.30
+      - gfatools 0.5
+
+    Included workflow:
+      - local_assembly.sh
+
+    Workflow:
+
+      1. samtools
+         Extract reads overlapping user-defined genomic regions
+         from aligned long-read BAM files.
+
+      2. hifiasm
+         Perform localized long-read genome assembly.
+
+      3. gfatools
+         Convert assembly graphs (GFA) to FASTA.
+
+      4. minimap2
+         Align assembled contigs to a user-provided
+         reference genome.
+
+
+    local_assembly.sh usage:
+      local_assembly.sh samples.tsv reference.fa
+
+    Optional parameters:
+      --minimap2 "PARAMETERS"
+      --hifiasm "PARAMETERS"
+
+
+%runscript
+
+    exec local_assembly.sh "$@"
