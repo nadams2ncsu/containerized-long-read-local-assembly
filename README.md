@@ -53,8 +53,10 @@ The reference is used to align the completed local assemblies.
 
 ### 4. Run the workflow
 ```bash
+chmod +x submit_local_assembly.sh
 ./submit_local_assembly.sh samples.tsv reference.genome.fa
 ```
+*The .sif file must also be in the current working directory*
 
 The workflow processes the samples and genomic regions specified in `samples.tsv` using the containerized software environment and workflow in `lr_local_asm.sif`.
 
