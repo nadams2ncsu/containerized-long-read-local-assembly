@@ -18,4 +18,4 @@ chmod +x submit_local_assembly.sh
 ./submit_local_assembly.sh samples.tsv /home4/nadams2/ref/GCA_000001405.29_GRCh38.p14_primary.fasta
 ```
 
-*Commands were written for the SLURM job scheduler. Modify resources based on system scheduler and resources*
+*Commands were written for the SLURM job scheduler. Modify resources based on system scheduler and resources in submit_local_assembly.sh starting on line 265*
