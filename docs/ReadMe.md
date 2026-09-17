@@ -1,4 +1,4 @@
-# Docs Directory
+# Docs
 
 ## Purpose
 - Explains what is included in the  `lr_local_asm.sif` container and how it was built.
