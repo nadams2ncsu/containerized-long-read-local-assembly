@@ -8,6 +8,7 @@ The container includes:
 - hifiasm 0.25.0
 - minimap2 2.30
 - gfatools 0.5
+- long-read local assembly workflow `local_assembly.sh`
 
 The container was built using **Apptainer in an Ubuntu Lima VM on macOS** and then transferred to an HPC system for execution with Singularity.
 
@@ -15,20 +16,9 @@ The container was built using **Apptainer in an Ubuntu Lima VM on macOS** and th
 
 ## 1. Create the Definition File
 
-The container is defined by `LR_Local_Asm.def`.
+The container is defined by `lr_local_asm.def`.
 
-The definition file specifies the base Linux environment, required dependencies, and installation of the bioinformatics software used by the workflow.
-
-The resulting container includes:
-
-| Software | Version |
-|---|---:|
-| samtools | 1.22.1 |
-| hifiasm | 0.25.0 |
-| minimap2 | 2.30 |
-| gfatools | 0.5 |
-
-The definition file used for this build is at `containerized-long-read-local-assembly/docs/LR_Local_Asm.def`
+The definition file specifies the environment, installation of software, and the local assembly workflow.
 
 ---
 
@@ -50,22 +40,22 @@ limactl --version
 
 The Linux VM only needs to be created once.
 
-Create an Ubuntu VM named `singularity`:
+Create an Ubuntu VM named `singularity_local_asm`:
 
 ```bash
-limactl start --name=singularity template://ubuntu
+limactl start --name=singularity_local_asm template://ubuntu
 ```
 
 Once the VM has been created, enter it with:
 
 ```bash
-limactl shell singularity
+limactl shell singularity_local_asm
 ```
 
 For future sessions, the VM does not need to be recreated. It can be accessed using:
 
 ```bash
-limactl shell singularity
+limactl shell singularity_local_asm
 ```
 
 ---
@@ -91,15 +81,8 @@ Apptainer is used to build the `.sif` container, which can subsequently be execu
 Enter the Lima VM:
 
 ```bash
-limactl shell singularity
+limactl shell singularity_local_asm
 ```
-
-The definition file on the macOS filesystem is accessible from within the VM at:
-
-```text
-/path/to/def/file/LR_LocalAsm.def
-```
-
 Move to the Linux home directory:
 
 ```bash
@@ -109,13 +92,13 @@ cd ~
 Build the container using:
 
 ```bash
-sudo apptainer build LR_LocalAsm.sif /path/to/def/file/LR_LocalAsm.def
+sudo apptainer build lr_local_asm.sif /path/to/def/file/lr_local_asm.def
 ```
 
 The completed container is created inside the Linux VM at:
 
 ```text
-/home/nicoleadams.guest/LR_LocalAsm.sif
+/home/nicoleadams.guest/lr_local_asm.sif
 ```
 
 The SIF is built within the Linux filesystem rather than directly in the macOS-mounted `/Users` directory.
@@ -131,20 +114,20 @@ exit
 ```
 
 ```bash
-limactl copy singularity:/home/nicoleadams.guest/LR_LocalAsm.sif .
+limactl copy singularity_local_asm:/home/nicoleadams.guest/lr_local_asm.sif .
 ```
 
 The completed container is now available on macOS as:
 
 ```text
-LR_LocalAsm.sif
+lr_local_asm.sif
 ```
 
 ---
 
 ## 7. Transfer the SIF to the HPC
 
-Transfer `LR_LocalAsm.sif` from macOS to the HPC using SFTP or another supported file-transfer method.
+Transfer `lr_local_asm.sif` from macOS to the HPC using SFTP or another supported file-transfer method.
 
 The container can then be placed in the project directory containing the local assembly workflow.
 
@@ -160,27 +143,3 @@ singularity exec LR_LocalAsm.sif hifiasm --version
 singularity exec LR_LocalAsm.sif minimap2 --version
 singularity exec LR_LocalAsm.sif gfatools
 ```
----
-
-## 9. Accessing HPC Filesystems
-
-Filesystems available on the HPC may not automatically be visible inside the container.
-
-For this workflow, files stored under `/rsstu` are explicitly bound into the container. 
-
-```bash
-singularity exec \
-    --bind /rsstu:/rsstu \
-    LR_LocalAsm.sif \
-    <command>
-```
-
-The required filesystem and mount path will vary between HPC systems. Users should update the `--bind` path in `Local_Assembly.sh` to match the location of their input data and reference genome.
-
-For example, if the required files are stored under `/data`, the bind would instead be:
-
-```bash
---bind /data:/data
-```
-
-`Local_Assembly.sh` handles the bind during workflow execution once the appropriate filesystem path has been configured.
