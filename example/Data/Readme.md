@@ -26,4 +26,4 @@ All outputs will be deposited in subdirectories within the current working direc
 | BAM files | Final assembled contigs aligned to the reference genome |
 | .fa | Asembled contig sequences output by gfatools |
 
-*The long-read local assembly workflow will produce intermediate outputs from gene/region-specific subsetting and hifiasm assembly. These outputs will be stored in the `intermediate` and `hifiasm` directories produced from the workflow. These files are useful for quality control (read length and depth) statistics, troubleshooting, and visualization. All secondary outputs are excluded from the repo for size purposes.*
+*The long-read local assembly workflow will produce intermediate outputs from gene/region-specific subsetting and hifiasm assembly. These outputs will be stored in the `intermediate` and `hifiasm` directories. These files are useful for quality control (read length and depth) statistics, troubleshooting, and visualization. All secondary outputs are excluded from the repo for size purposes.*
