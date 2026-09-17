@@ -4,14 +4,15 @@ A containerized HPC workflow for local genome assembly from long-read whole geno
 
 The workflow extracts reads overlapping user-defined genomic regions with **samtools**, performs local assembly with **hifiasm**, converts assembly graphs to FASTA with **gfatools**, and aligns the resulting contigs to a user-supplied reference genome with **minimap2**.
 
-## Software
+## Container
 
-The Singularity/Apptainer container includes:
+The Singularity/Apptainer container includes the following software and workflow:
 
 - samtools v1.22.1
 - hifiasm v0.25
 - gfatools v0.5
 - minimap2 v2.30
+- long-read local assembly workflow `local_assembly.sh`
 
 ## Quick Start
 
@@ -46,7 +47,7 @@ The reference is used to align the completed local assemblies.
 
 ### 4. Run the workflow
 ```bash
-./submit_Local_Assembly.sh samples.tsv reference.genome.fa
+./submit_local_assembly.sh samples.tsv reference.genome.fa
 ```
 
 The workflow processes the samples and genomic regions specified in `samples.tsv` using the containerized software environment and workflow in `lr_local_asm.sif`.
@@ -65,5 +66,10 @@ For each sample and genomic region, the workflow generates:
 
 ## Docs
 Contains the definition file and steps for building the `lr_local_assembly.sif` file as well as miscellaneous notes for the workflow.
+
+## Citations
+If you find this code useful in your research or project, please consider citing this repository:
+
+Adams, Nicole.(2026).containerized-long-read-local-assembly.GitHub repository.https://github.com/nadams2ncsu/containerized-long-read-local-assembly
 
 
