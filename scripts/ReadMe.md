@@ -11,7 +11,7 @@ Includes the following:
 - Parallelizes analysis by *sample*, running only 5 jobs concurrently
 - Submits the analysis to HPC that has the SLURM job scheduler
 
-**Usage: `./submit_local_assembly.sh samples.tsv and reference genome fasta`**
+Usage: `./submit_local_assembly.sh samples.tsv and reference genome fasta`
 
 ## local_assembly.sh
 Workflow contained in the `lr_local_asm.sif` container. 
