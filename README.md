@@ -2,6 +2,12 @@
 
 A containerized HPC workflow for local genome assembly from long-read whole genome sequencing data.
 
+## Goal
+
+Genotype challenging genomic regions using long-read whole-genome sequencing data
+
+## High-level Overview
+
 The workflow extracts reads overlapping user-defined genomic regions with **samtools**, performs local assembly with **hifiasm**, converts assembly graphs to FASTA with **gfatools**, and aligns the resulting contigs to a user-supplied reference genome with **minimap2**.
 
 ## Container
@@ -61,10 +67,12 @@ The workflow processes the samples and genomic regions specified in `samples.tsv
 | Hifiasm parameters | OPTIONAL assembly parameters string; default "-t --hg-size -o"
 
 ## Outputs
+| Outputs | Description |
+|---|---|
+| Assembled contigs | Assembled genomic regions are stored in the **fasta directory** `.fa` files |
+| Aligned contigs | Aligned contigs to the reference genome are stored in the **alignment directories** as `.bam` files |
 
-For each sample and genomic region, the workflow generates:
-- assembled contigs (`.gfa and .fa`)
-- alignment of assembled contigs to the reference genome (`.bam`)
+*Additional outputs including gene/region-specific bam/fastq files and assembly output metrics will be in the hifiasm and intermediate directories. These files may be useful for troubleshooting and different visualizations but are ommitted from the repo. The workflow will output intermediate files on your HPC system.*
 
 ## Docs
 Contains the definition file and steps for building the `lr_local_assembly.sif` file as well as miscellaneous notes for the workflow.
