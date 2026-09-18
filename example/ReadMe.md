@@ -1,21 +1,31 @@
 # Example
-Directory shows example usage of long-read local assembly container using human whole-genome sequencing data and the Fc gamma receptor 2/3 locus.
 
-*The container can be used for other genes/regions and systems as long as the `samples.tsv` and `reference genome fasta` files are supplied.*
+This directory demonstrates use of the long-read local assembly workflow with human whole-genome sequencing data from the **1KGP Long-Read Sequencing Consortium (LRSC)** and the **FCGR2/3** locus.
+
+The workflow can be applied to other genes, genomic regions, and reference genomes by providing the appropriate sample configuration and reference genome FASTA.
 
 ## Data
-Contains inputs and outputs from local assembly of Nanopore and PacBio long-read whole-genome sequencing data from local assembly.
 
-The original whole-genome sequencing data can be found on the 1KGP Long-Read Sequencing Consortium [AWS bucket](https://s3.amazonaws.com/1000g-ont/index.html)
+The example includes results from both Oxford Nanopore and PacBio long-read whole-genome sequencing data.
+
+The original whole-genome sequencing data are publicly available through the 1KGP Long-Read Sequencing Consortium AWS data repository.
+
+See `Data/README.md` for details about the example outputs included in this repository.
 
 ## Usage
-Shows basic and advance command line usage of using the container and submitting it to an HPC system.
+
+The example was generated using the SLURM-based submission workflow.
 
 ```bash
 chmod +x bin/submit_local_assembly.sh
 ```
+
+Basic usage:
+
 ```bash
-./bin/submit_local_assembly.sh samples.tsv /home4/nadams2/ref/GCA_000001405.29_GRCh38.p14_primary.fasta
+./bin/submit_local_assembly.sh samples.tsv /path/to/reference/GRCh38.fasta
 ```
 
-*Commands were written for the SLURM job scheduler. Modify resources based on system scheduler and resources in submit_local_assembly.sh starting on line 265*
+The workflow also supports user-specified hifiasm and minimap2 parameters. See the main repository `README.md` for complete usage and configuration options.
+
+> **Note:** The provided submission script is configured for the SLURM job scheduler. HPC resource requests may need to be modified based on the available computing environment.
