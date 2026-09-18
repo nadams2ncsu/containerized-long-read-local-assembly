@@ -19,7 +19,7 @@ All inputs must be in the same directory unless paths are updated in `submit_loc
 **The lr_local_assembly.sif must be in the current working directory**
 
 ## Outputs
-All outputs will be deposited in subdirectories within the current working directory.
+All outputs will be deposited in sample-specific subdirectories within the current working directory. Each subset will have the outputs below.
 
 | File | Description |
 |---|---|
