@@ -90,8 +90,8 @@ The workflow processes each sample and genomic region using the software environ
 |---|---|
 | Sample configuration | Tab-delimited file containing sample names, BAM paths, and genomic coordinates |
 | Reference | Reference genome FASTA to align the contigs to |
-| Minimap2 parameters | OPTIONAL alignment parameters string; default "-ax asm5 --secondary=no" | 
-| Hifiasm parameters | OPTIONAL assembly parameters string; default "-t 16 --hg-size [SUBSET SIZE] -o [SAMPLE METADATA FROM `samples.tsv`]"
+| Minimap2 parameters | OPTIONAL alignment parameters string; Default "-ax asm5 --secondary=no" | 
+| Hifiasm parameters | OPTIONAL assembly parameters string; Default "-t 16 --hg-size [SUBSET SIZE] -o [SAMPLE METADATA FROM `samples.tsv`]"
 
 ## Outputs
 | Main Outputs | Description |
