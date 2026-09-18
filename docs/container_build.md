@@ -138,8 +138,8 @@ The container can then be placed in the project directory containing the local a
 After transferring the SIF, use `singularity exec` on the HPC to confirm that the expected software and versions are available:
 
 ```bash
-singularity exec LR_LocalAsm.sif samtools --version
-singularity exec LR_LocalAsm.sif hifiasm --version
-singularity exec LR_LocalAsm.sif minimap2 --version
-singularity exec LR_LocalAsm.sif gfatools
+singularity exec lr_local_asm.sif samtools --version
+singularity exec lr_local_asm.sif hifiasm --version
+singularity exec lr_local_asm.sif minimap2 --version
+singularity exec lr_local_asm.sif gfatools
 ```
