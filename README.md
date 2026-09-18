@@ -69,7 +69,7 @@ The workflow processes the samples and genomic regions specified in `samples.tsv
 | Hifiasm parameters | OPTIONAL assembly parameters string; default "-t 16 --hg-size [SUBSET SIZE] -o [SAMPLE METADATA FROM `samples.tsv`]"
 
 ## Outputs
-| Outputs | Description |
+| Main Outputs | Description |
 |---|---|
 | Assembled contigs | Assembled genomic regions are stored in the **fasta directory** `.fa` files |
 | Aligned contigs | Aligned contigs to the reference genome are stored in the **alignment directories** as `.bam` files |
