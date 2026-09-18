@@ -31,7 +31,7 @@ git clone https://github.com/nadams2ncsu/containerized-long-read-local-assembly
 cd containerized-local-genome-assembly
 ```
 
-### 2. Prepare the sample input file
+### 2. Prepare input sample.tsv file
 
 Provide a tab-delimited file containing:
 
