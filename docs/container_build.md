@@ -8,7 +8,7 @@ The container includes:
 - hifiasm 0.25.0
 - minimap2 2.30
 - gfatools 0.5
-- long-read local assembly workflow `local_assembly.sh`
+- long-read local assembly workflow `containerized-long-read-local-assembly/bin/local_assembly.sh`
 
 The container was built using **Apptainer in an Ubuntu Lima VM on macOS** and then transferred to an HPC system for execution with Singularity.
 
@@ -16,7 +16,7 @@ The container was built using **Apptainer in an Ubuntu Lima VM on macOS** and th
 
 ## 1. Create the Definition File
 
-The container is defined by `lr_local_asm.def`.
+The container is defined by `containerized-long-read-local-assembly/container/lr_local_asm.def`.
 
 The definition file specifies the environment, installation of software, and the local assembly workflow.
 
