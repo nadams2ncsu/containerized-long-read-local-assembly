@@ -29,7 +29,7 @@ All outputs will be deposited in subdirectories within the current working direc
 **NOTE: Not all sample subsets will have contiguous assemblies. Each sample may need different subset sizes for gneotyping. 
 Samples included in the example have contiguous assemblies with 400 kb flanking regions.**
 
-The workflow will produce intermediate outputs from gene/region-specific subsetting and hifiasm assembly. 
+The workflow will produce intermediate outputs from the subsetting and assembly steps. 
 These outputs will be stored in the `intermediate` and `hifiasm` directories. 
 These files are useful for quality control (read length and depth) statistics, troubleshooting, and visualization. 
 All secondary outputs are excluded from the repo for size purposes.
