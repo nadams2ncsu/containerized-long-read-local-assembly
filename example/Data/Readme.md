@@ -6,12 +6,12 @@ Command line usage:
 `./submit_local_assembly.sh samples.tsv reference.genome.fa`
 
 ## Inputs
-All inputs must be in the same directory unless paths are updated in `submit_local_assembly.sh`.
+All inputs must be in the same directory unless paths are updated in `containerized-long-read-local-assembly/bin/submit_local_assembly.sh`.
 
 | File | Description |
 |---|---|
 | submit_local_assembly.sh | A wrapper used to detect how many samples are in samples.tsv, submits workflow to HPC, and runs only 5 samples at a time |                                    
-| samples.tsv | Contains metadata information for samples that will be processed |
+| samples configuration | Contains metadata information for samples that will be processed |
 | Reference genome file | The human reference genome FASTA/FA file of the genome you want to align the contigs to |
 
 **samples.tsv is a 7-column tab-delimited input file where all columns are required. However, if consortium does not apply to your dataset, a different label can be placed there (batch, timepoint, etc)**
