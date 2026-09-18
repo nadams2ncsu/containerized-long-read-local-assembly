@@ -12,7 +12,7 @@ The definition file `lr_local_asm.def` was used to created the `lr_local_asm.sif
 - gfatools v0.5
 - minimap2 v2.30
 - long-read local assembly workflow.
-  - The bash scripting for this workflow is found `containerized-long-read-local-assembly/scripts/local_assembly.sh`
+  - The bash scripting for this workflow is found `containerized-long-read-local-assembly/bin/local_assembly.sh`
 
 A step-by-step guide to build the container can be found in `container_build.md`
 
