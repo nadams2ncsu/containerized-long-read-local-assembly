@@ -1,4 +1,4 @@
-# Scripts
+# Bin
 
 Scripts used in the long-read local assembly workflow
 
