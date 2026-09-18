@@ -1,33 +1,22 @@
-# Data
-Explains the usage and main inputs/outputs produced from the long-read local assembly container.
+# Example Outputs
 
-## Usage
-Command line usage:
-`./submit_local_assembly.sh samples.tsv reference.genome.fa`
+This directory contains representative outputs generated using the long-read local assembly workflow for the human **FCGR2/3** region.
 
-## Inputs
-All inputs must be in the same directory unless paths are updated in `containerized-long-read-local-assembly/bin/submit_local_assembly.sh`.
+Multiple flanking-region sizes are included to demonstrate workflow execution across different user-specified configurations. Workflow completion does not necessarily indicate a contiguous assembly; assembly contiguity may vary by sample and flank size.
 
-| File | Description |
-|---|---|
-| submit_local_assembly.sh | A wrapper used to detect how many samples are in samples.tsv, submits workflow to HPC, and runs only 5 samples at a time |                                    
-| samples configuration | Contains metadata information for samples that will be processed |
-| Reference genome file | The human reference genome FASTA/FA file of the genome you want to align the contigs to |
+## Included Outputs
 
-**samples.tsv is a 7-column tab-delimited input file where all columns are required. However, if consortium does not apply to your dataset, a different label can be placed there (batch, timepoint, etc)**
+Each example run contains selected primary outputs:
 
-**The lr_local_assembly.sif must be in the current working directory**
+| Output       | Description                                                                       |
+| ------------ | --------------------------------------------------------------------------------- |
+| `fasta/`     | Assembled contig sequences generated from the hifiasm assembly graphs             |
+| `alignment/` | Assembled contigs aligned to the reference genome as sorted and indexed BAM files |
+| `log/`       | SLURM and workflow log files                                                      |
 
-## Outputs
-All outputs will be deposited in sample-specific subdirectories within the current working directory. Each subset will have the outputs below.
+During normal execution, the workflow also generates `intermediate/` and `hifiasm/` directories. These larger files have been excluded from the repository to limit its size.
 
-| File | Description |
-|---|---|
-| BAM files | Final assembled contigs aligned to the reference genome |
-| .fa | Asembled contig sequences output by gfatools |
-
-**NOTE: Not all sample subsets will have contiguous assemblies. Each sample may need different subset sizes for gneotyping. 
-Samples included in the example have contiguous assemblies with 400 kb flanking regions.**
+See the main repository `README.md` for workflow usage, configuration, and complete output descriptions.
 
 The workflow will produce intermediate outputs from the subsetting and assembly steps. 
 These outputs will be stored in the `intermediate` and `hifiasm` directories. 
