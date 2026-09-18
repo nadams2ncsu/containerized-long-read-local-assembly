@@ -61,8 +61,7 @@ The sample configuration is a tab-delimited file containing the following column
 | Data_Type | Long-read sequencing platform (`ONT`, `PB`, or `NA`) |
 | Flanks | Flanking regions lengths to add to target region | 
 
-Supported flank sizes are: `50, 100, 200, 300, 400, 500, and 1000000`. Where all values are kb except for the 1Mb size.
-Multiple flank sizes can be provided as a comma-separated list: 50,100,200,400. Alternatively, all runs all supported flank sizes.
+Supported flank sizes are: 50, 100, 200, 300, 400, 500, and 1000000, where values from 50-500 are specified in kb and 1000000 represents 1 Mb. Multiple flank sizes can be provided as a comma-separated list (e.g., 50,100,200,400). Alternatively, specifying all runs all supported flank sizes.
 
 ### 3. Provide the reference genome
 
